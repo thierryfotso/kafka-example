@@ -5,8 +5,13 @@ spring:
       group-id: group_id
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      value-deserializer: com.example.kafka.kafka_example.dto.MessageDeSerializer
+#      properties:
+#        spring:
+#          json:
+#            trusted:
+#              package: com.example.kafka.kafka_example.dto
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      value-serializer: com.example.kafka.kafka_example.dto.MessageSerializer
