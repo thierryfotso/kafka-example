@@ -55,6 +55,6 @@ services:
       - "7777:8080"
     restart: always
     environment:
-      - KAFKA_CLUSTERS_0_NAME=broker
+      - KAFKA_CLUSTERS_0_NAME=cluster0
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=broker:9093
       - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
