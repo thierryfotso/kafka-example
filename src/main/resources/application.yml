@@ -1,17 +1,26 @@
 spring:
   kafka:
+    bootstrap-servers: localhost:9092
     consumer:
       bootstrap-servers: localhost:9092
       group-id: group_id
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: com.example.kafka.kafka_example.dto.MessageDeSerializer
-#      properties:
-#        spring:
-#          json:
-#            trusted:
-#              package: com.example.kafka.kafka_example.dto
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: com.example.kafka.kafka_example.dto.MessageSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: '*'
+
+topics: test_topic
+#topics: topics_message
